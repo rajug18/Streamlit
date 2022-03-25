@@ -112,7 +112,7 @@ if st.button("submit"):
     to_add = {"Disease Name":[[selected_element1]],"Symptom":[[selected_element3,selected_element4,
                                                                selected_element5,selected_element6,selected_element7]]}
     to_add = pd.DataFrame(to_add)
-    to_add.to_csv(r"Streamlit/Entry_Data.csv",mode='a',header = False,index= False)
+    to_add.to_csv(r"Entry_Data.csv",mode='a',header = False,index= False)
     st.success("Submitted")
 
 
