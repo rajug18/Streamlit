@@ -3,7 +3,7 @@
 
 import streamlit as st
 from urllib.parse import urlparse
-import psycopg2
+#import psycopg2
 import os
 import pandas as pd
 
