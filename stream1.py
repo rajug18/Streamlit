@@ -3,7 +3,7 @@
 
 import streamlit as st
 from urllib.parse import urlparse
-#import psycopg2
+import psycopg2
 import os
 import pandas as pd
 
@@ -128,7 +128,7 @@ if selected_element1 != "":
 # In[ ]:
 
 
-selected_element3 = st.selectbox("Choose Symptom", ("None",'Abdominal bloating', 'Abdominal pain', 'Abdominal swelling', 'Acne', 'Anxiety', 'Arm pain', 'Back pain', 'Bad breath', 'Bloating', 'Blood clots', 'Blood in the urine', 'Blurred vision', 'Blurry vision', 'Body aches', 'Bone pain', 'Breast lumps', 'Bruising', 'Chest pain', 'Chest tightness or pain', 'Chills', 'Cold hands', 'Coma', 'Confusion', 'Constipation', 'Cough', 'Coughing up blood', 'Cramping', 'Dark urine', 'Decreased mental sharpness', 'Dehydration', 'Delayed growth', 'Delirium', 'Depression', 'Diarrhea', 'Difficult or painful swallowing', 'Difficulty breathing', 'Difficulty concentrating', 'Difficulty speaking', 'Difficulty swallowing', 'Dilated pupils', 'Dizziness', 'Double vision', 'Drooling', 'Drop in blood pressure', 'Dry cough', 'Dry eyes', 'Dry skin', 'Dysuria', 'Ear pain', 'Easy bruising', 'Eosinophilia', 'Erectile dysfunction', 'Excessive sweating', 'Excessive thirst', 'Exhaustion', 'Extreme fatigue', 'Eye pain', 'Eye redness', 'Fainting', 'Fast heartbeat', 'Fatigue', 'Fever', 'Flatulence', 'Foot pain', 'Frequent bowel movements', 'Frequent infections', 'Frequent urination', 'Gas', 'Groin pain', 'Hair loss', 'Hallucinations', 'Hand numbness', 'Headache', 'Heal without scarring in one to two weeks', 'Hearing loss', 'Heartburn', 'Heavy sweating', 'High blood pressure', 'High fever', 'High white blood cell count', 'Hives', 'Hoarseness', 'Hot flashes', 'Hyperhidrosis', 'Increased thirst', 'Infertility', 'Insomnia', 'Irregular heartbeat', 'Irritability or depressed mood', 'Itching', 'Itchy skin', 'Joint pain', 'Kidney failure', 'Knee pain', 'Lack of appetite', 'Leg pain', 'Leg swelling', 'Less likely to have delusions', 'Lightheadedness', 'Liver failure', 'Losing weight without trying', 'Loss of appetite', 'Loss of consciousness', 'Loss of peripheral vision', 'Loss of smell', 'Low blood pressure', 'Muscle aches', 'Muscle cramps', 'Muscle pain', 'Muscle weakness', 'Nasal congestion', 'Nausea', 'Neck pain', 'Nervous system malfunctions', 'Night sweats', 'Nipple discharge', 'Nosebleeds', 'Numbness', 'Pale or yellowish skin', 'Pale skin', 'Paranoia', 'Pelvic pain', 'Personality changes', 'Petechiae', 'Pneumonia', 'Poor appetite', 'Postnasal drip', 'Pounding or jumping', 'Protein in urine', 'Racing thoughts', 'Rapid breathing', 'Rapid heart rate', 'Rapid pulse', 'Rash', 'Rectal bleeding', 'Rectal pain', 'Red eyes', 'Redness', 'Reduced ability to exercise', 'Respiratory failure', 'Runny nose', 'Seizures', 'Sensitivity to light', 'Severe pain', 'Shortness of breath', 'Shoulder pain', 'Skin rash', 'Sleep disturbances', 'Sleep problems', 'Slurred speech', 'Sneezing', 'Social withdrawal', 'Sore throat', 'Stiff neck', 'Stomach pain', 'Stuffy nose', 'Sweating', 'Swelling', 'Swelling of feet and ankles', 'Testicle pain', 'Tiredness', 'Tremors', 'Trouble sleeping', 'Unexplained weight loss', 'Unintended weight loss', 'Upper abdominal pain', 'Urinary tract infection', 'Vaginal bleeding', 'Vaginal bleeding after menopause', 'Vaginal discharge', 'Vaginal dryness', 'Vision loss', 'Vomiting', 'Vomiting blood', 'Watery eyes', 'Weakness', 'Weight gain', 'Weight loss'))
+selected_element3 = st.selectbox("Choose Symptom1", ("None",'Abdominal bloating', 'Abdominal pain', 'Abdominal swelling', 'Acne', 'Anxiety', 'Arm pain', 'Back pain', 'Bad breath', 'Bloating', 'Blood clots', 'Blood in the urine', 'Blurred vision', 'Blurry vision', 'Body aches', 'Bone pain', 'Breast lumps', 'Bruising', 'Chest pain', 'Chest tightness or pain', 'Chills', 'Cold hands', 'Coma', 'Confusion', 'Constipation', 'Cough', 'Coughing up blood', 'Cramping', 'Dark urine', 'Decreased mental sharpness', 'Dehydration', 'Delayed growth', 'Delirium', 'Depression', 'Diarrhea', 'Difficult or painful swallowing', 'Difficulty breathing', 'Difficulty concentrating', 'Difficulty speaking', 'Difficulty swallowing', 'Dilated pupils', 'Dizziness', 'Double vision', 'Drooling', 'Drop in blood pressure', 'Dry cough', 'Dry eyes', 'Dry skin', 'Dysuria', 'Ear pain', 'Easy bruising', 'Eosinophilia', 'Erectile dysfunction', 'Excessive sweating', 'Excessive thirst', 'Exhaustion', 'Extreme fatigue', 'Eye pain', 'Eye redness', 'Fainting', 'Fast heartbeat', 'Fatigue', 'Fever', 'Flatulence', 'Foot pain', 'Frequent bowel movements', 'Frequent infections', 'Frequent urination', 'Gas', 'Groin pain', 'Hair loss', 'Hallucinations', 'Hand numbness', 'Headache', 'Heal without scarring in one to two weeks', 'Hearing loss', 'Heartburn', 'Heavy sweating', 'High blood pressure', 'High fever', 'High white blood cell count', 'Hives', 'Hoarseness', 'Hot flashes', 'Hyperhidrosis', 'Increased thirst', 'Infertility', 'Insomnia', 'Irregular heartbeat', 'Irritability or depressed mood', 'Itching', 'Itchy skin', 'Joint pain', 'Kidney failure', 'Knee pain', 'Lack of appetite', 'Leg pain', 'Leg swelling', 'Less likely to have delusions', 'Lightheadedness', 'Liver failure', 'Losing weight without trying', 'Loss of appetite', 'Loss of consciousness', 'Loss of peripheral vision', 'Loss of smell', 'Low blood pressure', 'Muscle aches', 'Muscle cramps', 'Muscle pain', 'Muscle weakness', 'Nasal congestion', 'Nausea', 'Neck pain', 'Nervous system malfunctions', 'Night sweats', 'Nipple discharge', 'Nosebleeds', 'Numbness', 'Pale or yellowish skin', 'Pale skin', 'Paranoia', 'Pelvic pain', 'Personality changes', 'Petechiae', 'Pneumonia', 'Poor appetite', 'Postnasal drip', 'Pounding or jumping', 'Protein in urine', 'Racing thoughts', 'Rapid breathing', 'Rapid heart rate', 'Rapid pulse', 'Rash', 'Rectal bleeding', 'Rectal pain', 'Red eyes', 'Redness', 'Reduced ability to exercise', 'Respiratory failure', 'Runny nose', 'Seizures', 'Sensitivity to light', 'Severe pain', 'Shortness of breath', 'Shoulder pain', 'Skin rash', 'Sleep disturbances', 'Sleep problems', 'Slurred speech', 'Sneezing', 'Social withdrawal', 'Sore throat', 'Stiff neck', 'Stomach pain', 'Stuffy nose', 'Sweating', 'Swelling', 'Swelling of feet and ankles', 'Testicle pain', 'Tiredness', 'Tremors', 'Trouble sleeping', 'Unexplained weight loss', 'Unintended weight loss', 'Upper abdominal pain', 'Urinary tract infection', 'Vaginal bleeding', 'Vaginal bleeding after menopause', 'Vaginal discharge', 'Vaginal dryness', 'Vision loss', 'Vomiting', 'Vomiting blood', 'Watery eyes', 'Weakness', 'Weight gain', 'Weight loss'))
 
 
 # In[ ]:
@@ -281,8 +281,87 @@ selected_element16 = st.selectbox("Other factors", ("None","RF_other_factors_abn
 st.write(selected_element16)
 
 # In[ ]:
+title = st.text_input('Other Info.', 'None')
+st.write(title)
+# In[ ]:
+attribute = st.selectbox('Do you want to add another symptom information',('No', 'Yes'))
+if attribute == 'Yes':
+    selected_element50 = st.selectbox("Choose Symptom2", ("None",'Abdominal bloating', 'Abdominal pain', 'Abdominal swelling', 'Acne', 'Anxiety', 'Arm pain', 'Back pain', 'Bad breath', 'Bloating', 'Blood clots', 'Blood in the urine', 'Blurred vision', 'Blurry vision', 'Body aches', 'Bone pain', 'Breast lumps', 'Bruising', 'Chest pain', 'Chest tightness or pain', 'Chills', 'Cold hands', 'Coma', 'Confusion', 'Constipation', 'Cough', 'Coughing up blood', 'Cramping', 'Dark urine', 'Decreased mental sharpness', 'Dehydration', 'Delayed growth', 'Delirium', 'Depression', 'Diarrhea', 'Difficult or painful swallowing', 'Difficulty breathing', 'Difficulty concentrating', 'Difficulty speaking', 'Difficulty swallowing', 'Dilated pupils', 'Dizziness', 'Double vision', 'Drooling', 'Drop in blood pressure', 'Dry cough', 'Dry eyes', 'Dry skin', 'Dysuria', 'Ear pain', 'Easy bruising', 'Eosinophilia', 'Erectile dysfunction', 'Excessive sweating', 'Excessive thirst', 'Exhaustion', 'Extreme fatigue', 'Eye pain', 'Eye redness', 'Fainting', 'Fast heartbeat', 'Fatigue', 'Fever', 'Flatulence', 'Foot pain', 'Frequent bowel movements', 'Frequent infections', 'Frequent urination', 'Gas', 'Groin pain', 'Hair loss', 'Hallucinations', 'Hand numbness', 'Headache', 'Heal without scarring in one to two weeks', 'Hearing loss', 'Heartburn', 'Heavy sweating', 'High blood pressure', 'High fever', 'High white blood cell count', 'Hives', 'Hoarseness', 'Hot flashes', 'Hyperhidrosis', 'Increased thirst', 'Infertility', 'Insomnia', 'Irregular heartbeat', 'Irritability or depressed mood', 'Itching', 'Itchy skin', 'Joint pain', 'Kidney failure', 'Knee pain', 'Lack of appetite', 'Leg pain', 'Leg swelling', 'Less likely to have delusions', 'Lightheadedness', 'Liver failure', 'Losing weight without trying', 'Loss of appetite', 'Loss of consciousness', 'Loss of peripheral vision', 'Loss of smell', 'Low blood pressure', 'Muscle aches', 'Muscle cramps', 'Muscle pain', 'Muscle weakness', 'Nasal congestion', 'Nausea', 'Neck pain', 'Nervous system malfunctions', 'Night sweats', 'Nipple discharge', 'Nosebleeds', 'Numbness', 'Pale or yellowish skin', 'Pale skin', 'Paranoia', 'Pelvic pain', 'Personality changes', 'Petechiae', 'Pneumonia', 'Poor appetite', 'Postnasal drip', 'Pounding or jumping', 'Protein in urine', 'Racing thoughts', 'Rapid breathing', 'Rapid heart rate', 'Rapid pulse', 'Rash', 'Rectal bleeding', 'Rectal pain', 'Red eyes', 'Redness', 'Reduced ability to exercise', 'Respiratory failure', 'Runny nose', 'Seizures', 'Sensitivity to light', 'Severe pain', 'Shortness of breath', 'Shoulder pain', 'Skin rash', 'Sleep disturbances', 'Sleep problems', 'Slurred speech', 'Sneezing', 'Social withdrawal', 'Sore throat', 'Stiff neck', 'Stomach pain', 'Stuffy nose', 'Sweating', 'Swelling', 'Swelling of feet and ankles', 'Testicle pain', 'Tiredness', 'Tremors', 'Trouble sleeping', 'Unexplained weight loss', 'Unintended weight loss', 'Upper Abdominal pain', 'Urinary tract infection', 'Vaginal bleeding', 'Vaginal bleeding after menopause', 'Vaginal discharge', 'Vaginal dryness', 'Vision loss', 'Vomiting', 'Vomiting blood', 'Watery eyes', 'Weakness', 'Weight gain', 'Weight loss'))
+    
+# In[ ]:
+
+    st.write(selected_element50)
+
 
 # In[ ]:
+
+    selected_element51 = st.selectbox("Symptom Severity", ("None",'Symptom_severity_extreme', 'Symptom_severity_high', 'Symptom_severity_Low', 'Symptom_severity_mild', 'Symptom_severity_moderate'))
+
+# In[ ]:
+
+
+    st.write(selected_element51)
+
+# In[ ]:
+
+    selected_element52 = st.selectbox("Symptom Constancy", ("None",'Symptom_Constancy_come and go', 'Symptom_constancy_constant', 'Symptom_constancy_fluctuates', 'Symptom_constancy_intermittent', 'Symptom_constancy_persistent'))
+
+
+# In[ ]:
+
+    st.write(selected_element52)
+
+# In[ ]:
+
+
+    selected_element53 = st.selectbox("Symptom Aggravating factors", ("None", 'Symptom_Aggravating_prolonged standing', 'Symptom_aggravating_running', 'Symptom_aggravating_stair climbing', 'Symptom_aggravating_taking large strides', 'Symptom_aggravating_air blown on the face', 'Symptom_aggravating_attempts to drink fluids', 'Symptom_aggravating_bright light', 'Symptom_aggravating_change in head position', 'Symptom_aggravating_coughing', 'Symptom_aggravating_crying', 'Symptom_aggravating_emotional stress', 'Symptom_aggravating_exertion', 'Symptom_aggravating_hot weather', 'Symptom_aggravating_noise', 'Symptom_aggravating_strenuous exercise', 'Symptom_aggravating_weight on one leg'))
+
+# In[ ]:
+
+
+    st.write(selected_element53)
+
+# In[ ]:
+
+
+    selected_element54 = st.selectbox("Symptom Radiating factors", ("None",'Symptom_Radiating_ankle', 'Symptom_radiating_arms', 'Symptom_radiating_back', 'Symptom_radiating_brain', 'Symptom_radiating_breast', 'Symptom_radiating_buttock', 'Symptom_radiating_ear', 'Symptom_radiating_elbow', 'Symptom_radiating_face', 'Symptom_radiating_feet', 'Symptom_radiating_forearm', 'Symptom_radiating_groin', 'Symptom_radiating_heart', 'Symptom_radiating_hip', 'Symptom_radiating_jaw bone', 'Symptom_radiating_kidneys', 'Symptom_radiating_knees', 'Symptom_radiating_leg', 'Symptom_radiating_legs', 'Symptom_radiating_lower abdomen', 'Symptom_radiating_lower back', 'Symptom_radiating_lungs', 'Symptom_radiating_neck', 'Symptom_radiating_shoulder', 'Symptom_radiating_thighs', 'Symptom_radiating_throat', 'Symptom_radiating_thumb', 'Symptom_radiating_trunk', 'Symptom_radiating_underarm', 'Symptom_radiating_wrist'))
+
+
+# In[ ]:
+
+    st.write(selected_element54)
+
+# In[ ]:
+
+
+    selected_element55 = st.selectbox("Symptom Relieving factors", ("None", 'Symptom_Relieving_angina medication', 'Symptom_relieving_regurgitation', 'Symptom_relieving_rest', 'Symptom_relieving_sitting up', 'Symptom_relieving_taking an acid-reducing medication', 'Symptom_onset_abruptly', 'Symptom_onset_acute', 'Symptom_onset_chronic', 'Symptom_onset_gently', 'Symptom_onset_gradually', 'Symptom_onset_slowly', 'Symptom_onset_sudden', 'Symptom_onset_suddenly', 'Symptom_quality_aching', 'Symptom_quality_burning', 'Symptom_quality_cramping', 'Symptom_quality_excruciating', 'Symptom_quality_gnawing', 'Symptom_quality_numbness', 'Symptom_quality_pressure', 'Symptom_quality_sharp', 'Symptom_quality_shooting', 'Symptom_quality_squeezing', 'Symptom_quality_stabbing', 'Symptom_quality_tightness', 'Symptom_quality_tingling'))
+
+# In[ ]:
+
+
+    st.write(selected_element55)
+
+# In[ ]:
+
+
+    selected_element56 = st.selectbox("Symptom Onset", ("None",'Symptom_Onset_abruptly', 'Symptom_onset_acute', 'Symptom_onset_chronic', 'Symptom_onset_gently', 'Symptom_onset_gradually', 'Symptom_onset_slowly', 'Symptom_onset_sudden', 'Symptom_onset_suddenly', 'Symptom_quality_aching', 'Symptom_quality_burning', 'Symptom_quality_cramping', 'Symptom_quality_excruciating', 'Symptom_quality_gnawing', 'Symptom_quality_numbness', 'Symptom_quality_pressure', 'Symptom_quality_sharp', 'Symptom_quality_shooting', 'Symptom_quality_squeezing', 'Symptom_quality_stabbing', 'Symptom_quality_tightness', 'Symptom_quality_tingling'))
+
+# In[ ]:
+
+
+    st.write(selected_element56)
+
+# In[ ]:
+
+
+    selected_element57 = st.selectbox("Symptom quality", ("None",'Symptom_quality_aching', 'Symptom_quality_burning', 'Symptom_quality_cramping', 'Symptom_quality_excruciating', 'Symptom_quality_gnawing', 'Symptom_quality_numbness', 'Symptom_quality_pressure', 'Symptom_quality_sharp', 'Symptom_quality_shooting', 'Symptom_quality_squeezing', 'Symptom_quality_stabbing', 'Symptom_quality_tightness', 'Symptom_quality_Tingling'))
+
+# In[ ]:
+
+
+    st.write(selected_element57)
+
+    
 
 
 # In[ ]:
@@ -349,10 +428,29 @@ if selected_element1 != "":
     * Previous disease info. 1 :{selected_element13}
     * Previous disease info. 2 :{selected_element14}
     * Previous disease info. 3 :{selected_element15}
-    * other factors :{selected_element17}
+    * other factors :{selected_element16}
+    * other info. : {title}
+    
     
    """ 
     )
+    
+if attribute == 'Yes':
+    st.markdown(
+    f"""
+    * Symptom2 : {selected_element50}
+    * Symptom severity : {selected_element51}
+    * Symptom constancy : {selected_element52}
+    * Symptom aggravating factors : {selected_element53}
+    * Symptom radiating factors : {selected_element54}
+    * Symptom relieving factors : {selected_element55}
+    * Symptom onset : {selected_element56}
+    * Symptom Quality : {selected_element57}
+    
+    """
+    )
+    
+
     
 # In[ ]:  
 database_url = os.environ.get('DATABASE_URL')
